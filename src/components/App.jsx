@@ -13,7 +13,7 @@ export default function App() {
   const [q, setQ] = useState('');
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
   const [largeImageUrl, setLargeImageUrl] = useState('');
 
   useEffect(() => {
@@ -41,11 +41,9 @@ export default function App() {
       setItems(prevState => [...prevState, ...images]);
       setIsLoading(false);
     } catch (error) {
-      setError({
-        error: error.message,
-      });
+      setError(error.message);
     } finally {
-      setError({ isLoading: false });
+      setIsLoading(false);
     }
   };
 
